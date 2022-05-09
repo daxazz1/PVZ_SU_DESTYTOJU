@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container project">
+    <h2>Projektas: {{ project.name }}</h2>
+    <hr/>
+    <p><strong>Terminas:</strong> {{ project.start_date }} - {{ project.end_date }}</p>
+    </hr>
+    <p><strong>Vadovas:</strong> {{ project.manager }}</p>
+    </hr>
+    <p><strong>Klientas:</strong> {{ project.client }}</p>
+    </hr>
+    <p><strong>Darbuotojai:</strong></p>
+    {% for employee in project.employees.all %}
+        <li>{{ employee }}</li>
+    {% endfor %}
+    </hr>
+    </br>
+    <p><strong>Darbai:</strong></p>
+    {% for job in project.jobs.all %}
+        <li>{{ job }}</li>
+    {% endfor %}
+    </hr>
+    </br>
+    <p><strong>Sąskaitos:</strong></p>
+    {% for invoice in project.invoices.all %}
+        <li>{{ invoice }}</li>
+    {% endfor %}
+    </br>
+    </div>
+{% endblock %}

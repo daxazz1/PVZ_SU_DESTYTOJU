@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Projektų sąrašas</h1>
+  {% if project_list %}
+  <ul>
+    {% for project in project_list %}
+      <li>
+        <a href="{{ project.id }}">{{ project.name }}</a> ({{project.start_date}} - {{project.end_date}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Nėra projektų.</p>
+  {% endif %}
+{% endblock %}
